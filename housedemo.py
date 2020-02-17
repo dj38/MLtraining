@@ -27,7 +27,8 @@ plt.scatter(surfList, loyerList)
 # remarque tri non necessaire...
 sortedSurfList = sorted(surfList)
 plt.plot(sortedSurfList, [ loyerParm2Moyen * myx for myx in sortedSurfList], 'y')
-plt.show()
+# /!\ decommenter la ligne suivante pour afficher le graph
+#plt.show()
 #print(loyerParm2Moyen)
 
 # 5/ avec numpy
@@ -38,3 +39,10 @@ loyerParm2MoyenArr = loyerArr/surfArr
 print("\nAvec numpy...")
 print("Le Loyer par m² moyen est de : " + str(np.mean(loyerParm2MoyenArr)))
 print("L'écart type du Loyer par m² est de : " + str(np.std(loyerParm2MoyenArr)))
+
+import scipy.stats as stats
+slope, intercept, rvalue, pvalue, stdErr = stats.linregress(surfList, loyerArr)
+print(slope, intercept, rvalue, pvalue, stdErr)
+# pvalue = "resistance au random"
+plt.plot(surfArr, slope * surfArr + intercept, color="red")
+plt.show()
