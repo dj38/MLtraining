@@ -20,6 +20,7 @@ with open("data/house/house.csv") as f:
     # 2/ Critiquer ce nuage de points
     # 3/ Trouver un modèle mathematique
     # 4/ calculer le loyer/m² moyen
+    # 5/ recalculer la moyenne des loyers/m² en utilisant numpy
 
 print("Le Loyer par m² moyen est de : " + str(loyerParm2Moyen))
 plt.scatter(surfList, loyerList)
@@ -28,3 +29,12 @@ sortedSurfList = sorted(surfList)
 plt.plot(sortedSurfList, [ loyerParm2Moyen * myx for myx in sortedSurfList], 'y')
 plt.show()
 #print(loyerParm2Moyen)
+
+# 5/ avec numpy
+import numpy as np
+loyerArr = np.array(loyerList)
+surfArr = np.array(surfList)
+loyerParm2MoyenArr = loyerArr/surfArr
+print("\nAvec numpy...")
+print("Le Loyer par m² moyen est de : " + str(np.mean(loyerParm2MoyenArr)))
+print("L'écart type du Loyer par m² est de : " + str(np.std(loyerParm2MoyenArr)))

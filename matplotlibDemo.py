@@ -1,3 +1,4 @@
+# plt est l'alias par defaut pour pyplot (exemples dans les forums)
 import matplotlib.pyplot as plt
 import math
 
