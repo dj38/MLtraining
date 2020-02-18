@@ -4,6 +4,15 @@
 # danger : a n'utiliser que sur les petits codes si je redefinis la fonction tanh son fonctionnement est change
 from math import tanh
 
+# essais lies au slides Yield
+# generateur = (x*x for x in range(3))
+# for i in generateur :
+#     print(i)
+#
+# lst = [x*x for x in range(3)]
+# for i in lst :
+#     print(i)
+
 def add(i,j=0):
     return i + j
 
